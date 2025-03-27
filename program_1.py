@@ -14,9 +14,9 @@ def count_file_lines():
     names_count = 0
     for name in names:
         names_count +=1
-
+    file.close()
     print(names_count)
-
+    
 # You don't need to change anything below this line:
 if __name__ == '__main__':
     count_file_lines()
