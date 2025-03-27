@@ -8,11 +8,31 @@
 # It should handle any IOError exceptions that are raised.
 # It should handle any ValueError exceptions that are raised when the items that are read from the file 
 # are converted to a number.
-def sum_numbers_from_file():
-    ######################
-    # Add your code here #
-    ######################
-    print('In the sum_numbers_from_file function')
+
+#Tanner Rosenthal
+#3/27/25
+#File Number Reader
+
+def sum_numbers_from_file(): 
+
+    file_numbers = open('numbers.txt', 'r')
+
+    try:
+        total = 0
+        file_contents = file_numbers.readlines()
+        for line in file_contents:
+            number = line.strip()
+            number = int(number)
+            total += number
+
+    except IOError as e:
+        print(f"An IOError occurred: {e}")
+    except ValueError as e:
+        print(f"A ValueError occurred: {e}")
+    finally:
+        file_numbers.close()
+        print(f"The total of the numbers in 'numbers.txt' is {total}")
+
 
 # You don't need to change anything below this line:
 if __name__ == '__main__':
